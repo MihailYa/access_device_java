@@ -14,11 +14,13 @@
 * [Патерн State](#State)
 
 ## <a name="Description"></a>Загальний опис
-Посилання на повну UML діаграму:
+**Автор:** Язенок Михайло, ІП-61
 
-[https://github.com/MihailYa/access_device_java/blob/master/architecture/Whole_architecture.png](https://github.com/MihailYa/access_device_java/blob/master/architecture/Whole_architecture.png "https://github.com/MihailYa/access_device_java/blob/master/architecture/Whole_architecture.png")
+**Умова:** [Варіант №14](https://github.com/MihailYa/access_device_java/blob/master/%D0%9B%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%201_2.pdf)
 
-В лабораторній роботі було використано:
+**Посилання на повну UML діаграму:** [Whole_architecture.png](https://github.com/MihailYa/access_device_java/blob/master/architecture/Whole_architecture.png "https://github.com/MihailYa/access_device_java/blob/master/architecture/Whole_architecture.png")
+
+**В лабораторній роботі було використано:**
 * Патерн MVC - для загальної структури та взаємодії.
 	* [Клас AccessDevice](#Controller) - Controller
 	* [Клас Memory](#Memory) - Model
