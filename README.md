@@ -1,5 +1,19 @@
 # Лабораторна робота. Варіант №14
-## Загальний опис
+## Зміст
+* [Загальний опис](#Description)
+* [Клас контролер - AccessDevice](#Controller)
+	* [IDisplay](#IDisplay)
+	* [Memory](#Memory)
+	* [ButtonsPanel](#ButtonsPanel)
+	* [AccessCardRecipient](#AccessCardRecipient)
+	* [Bell](#Bell)
+	* [ElectromechanicalLock](#ElectromechanicalLock)
+	* [Port](#Port)
+* [AccessDeviceDAO](#AccessDeviceDAO)
+* [Схема бази даних](#DataBase)
+* [Патерн State](#State)
+
+## <a name="Description"></a>Загальний опис
 Посилання на повну UML діаграму:
 
 [https://github.com/MihailYa/access_device_java/blob/master/architecture/Whole_architecture.png](https://github.com/MihailYa/access_device_java/blob/master/architecture/Whole_architecture.png "https://github.com/MihailYa/access_device_java/blob/master/architecture/Whole_architecture.png")
@@ -13,7 +27,7 @@
 * [Патерн State](#State) - для явного та зручного переходу між станами пропускного пристрою
 
 
-## <a name="Controller"></a>Клас контролер
+## <a name="Controller"></a>Клас контролер - AccessDevice
 ![AccessDevice](https://github.com/MihailYa/access_device_java/blob/master/architecture/AccessDevice\(Controller\).png)
 
 Включає наступні класи:
@@ -31,27 +45,27 @@
 
 Відповідає за взаємодію з базою даних (через **AccessDeviceDAO**) та зберігання кодів (коду доступу і коду контроля). Дані картки зберігаються у класі **AccessCard** (дані про людину та розклад за яким ця людина може відвідувати приміщення)
 
-### ButtonsPanel
+### <a name="ButtonsPanel"></a>ButtonsPanel
 ![ButtonsPanel](https://github.com/MihailYa/access_device_java/blob/master/architecture/ButtonsPanel.png "ButtonsPanel")
 
 **ButtonsPanel** – клас панелі керування з кнопками, відповідає за введення даних і повідомлення контролеру (через інтерфейс **IButtonsPanelEventsRecivier**) про натиснуту/зажату/віджату кнопку. Також контролює стан кнопок (допомагає уникнути ситуації, коли одну і ту саму кнопку двічі зажимають).
 
-### AccessCardRecipient
+### <a name="AccessCardRecipient"></a>AccessCardRecipient
 ![AccessCardRecipient ](https://github.com/MihailYa/access_device_java/blob/master/architecture/AccessCardRecipient.png "AccessCardRecipient ")
 
 **AccessCardRecipient** – клас приймача карток, відповідає за отримання картки (та повідомлення контролер через **ICardDataRecivier** про отримання картки), повернення картки та блокування картки.
 
-### Bell
+### <a name="Bell"></a>Bell
 ![Bell](https://github.com/MihailYa/access_device_java/blob/master/architecture/bell.png "Bell")
 
 **Bell** – клас дзвінка, відповідає за подавання звукового сигналу всередині приміщення.
 
-### ElectromechanicalLock 
+### <a name="ElectromechanicalLock"></a>ElectromechanicalLock 
 ![ElectromechanicalLock ](https://github.com/MihailYa/access_device_java/blob/master/architecture/ElectromechanicalLock.png "ElectromechanicalLock ")
 
 **ElectromechanicalLock** – клас електромеханічного замка, відповідає за блокування і відкриття дверей.
 
-### Port
+### <a name="Port"></a>Port
 ![Port](https://github.com/MihailYa/access_device_java/blob/master/architecture/Port.png "Port")
 
 **Port** – клас фізичного порту, за допомогою якого персональний комп’ютер отримує повний доступ до бази даних через **AccessDeviceDAO**.
@@ -66,7 +80,7 @@
 - **VisitorsJournalDAO** - для доступу до журналу відвідувань користувачами приміщення
 - **LockedCardsJournalDAO** – для доступу до журналу блокування карток
 
-## Схема бази даних
+## <a name="DataBase"></a>Схема бази даних
 ![DataBase](https://github.com/MihailYa/access_device_java/blob/master/architecture/DataBase.png "DataBase")
 
 ## <a name="State"></a>Патерн State
