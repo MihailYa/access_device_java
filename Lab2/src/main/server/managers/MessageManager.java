@@ -1,0 +1,28 @@
+package main.server.managers;
+
+import java.util.ResourceBundle;
+
+public class MessageManager {
+	private static MessageManager instance = new MessageManager();
+
+	public static MessageManager getInstance() {
+		return instance;
+	}
+
+	private static final String BUNDLE_NAME = "messages";
+
+	public static class MessagesIds {
+
+	}
+
+	private ResourceBundle resourceBundle;
+
+	private MessageManager() {
+		resourceBundle = ResourceBundle.getBundle(BUNDLE_NAME);
+	}
+
+
+	public String getMessage(String id) {
+		return resourceBundle.getString(id);
+	}
+}
