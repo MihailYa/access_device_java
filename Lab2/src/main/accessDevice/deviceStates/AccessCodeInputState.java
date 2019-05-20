@@ -41,7 +41,7 @@ public class AccessCodeInputState extends AccessDeviceState {
 				parent.changeState(new DoorUnlockedState(parent));
 
 			} else {
-				if (attemptsCountLeft == 0) {
+				if (attemptsCountLeft <= 1) {
 					String wrongPasswordCardIsLockedMessage =
 							DeviceMessagesManager.getInstance()
 							                     .getMessage(DeviceMessagesManager.MessagesIds.WRONG_PASSWORD_CARD_IS_LOCKED);
