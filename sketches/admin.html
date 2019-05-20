@@ -1,0 +1,76 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Admin panel</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+<body>
+	<form action="">
+		<h1>AccessCards table</h1>
+		<table class="simpleTable" cellspacing="0">
+			<tr>
+				<th>AccessCardId</th>
+				<th>Name</th>
+				<th>Surname</th>
+				<th>Schedule begin time</th>
+				<th>Schedule end time</th>
+				<th>Is card locked</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>TestName</td>
+				<td>TestSurname</td>
+				<td>19:00</td>
+				<td>23:00</td>
+				<td><input type="checkbox" onChange="this.form.submit()"></td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>TestName</td>
+				<td>TestSurname</td>
+				<td>19:00</td>
+				<td>23:00</td>
+				<td><input type="checkbox" onChange="this.form.submit()"></td>
+			</tr>
+		</table>
+</form>
+		<h1 style="margin-top: 20px;">Visitors journal</h1>
+		<table class="simpleTable">
+			<tr>
+				<th>RecordId</th>
+				<th>AccessCardId</th>
+				<th>Visit date</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>1</td>
+				<td>10.12.2019 12:52</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>2</td>
+				<td>10.12.2019 12:52</td>
+			</tr>
+		</table>
+
+		<h1 style="margin-top: 20px;">Cards locking journal</h1>
+		<table class="simpleTable">
+			<tr>
+				<th>RecordId</th>
+				<th>AccessCardId</th>
+				<th>Locking date</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>1</td>
+				<td>10.12.2019 12:52</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>2</td>
+				<td>10.12.2019 12:52</td>
+			</tr>
+		</table>
+	
+</body>
+</html>

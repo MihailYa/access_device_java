@@ -1,8 +1,10 @@
 package main.server.servlets;
 
 import main.accessDevice.AccessDevice;
-import main.server.commands.CommandsFactory;
-import main.server.commands.ICommand;
+import main.server.commands.deviceCommands.AbstractDeviceCommand;
+import main.server.commands.deviceCommands.DeviceCommandsFactory;
+import main.server.commands.deviceCommands.IDeviceCommand;
+import main.server.managers.AccessDevicesManager;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,6 +21,10 @@ public class AccessDeviceServlet extends HttpServlet {
 	public static final String PARAM_CALL_BUTTON = "callButton";
 	public static final String PARAM_CALL_BUTTON_PRESS = "callButtonPress";
 	public static final String PARAM_CONTROL_BUTTON = "controlButton";
+
+	public static final String PARAM_ADMIN_LOGIN = "adminLogin";
+	public static final String PARAM_ADMIN_PASSWORD = "adminPassword";
+
 
 	public static final String PARAM_ACCESS_CARD_ID = "accessCardId";
 
@@ -39,24 +45,26 @@ public class AccessDeviceServlet extends HttpServlet {
 	}
 
 
-	private AccessDevice accessDevice = new AccessDevice();
-	private CommandsFactory commandsFactory = CommandsFactory.getInstance();
+	private AccessDevice accessDevice = AccessDevicesManager.getInstance().getAccessDevice();
+	private DeviceCommandsFactory deviceCommandsFactory = DeviceCommandsFactory.getInstance();
 
 	private Logger log = Logger.getLogger(AccessDeviceServlet.class.getSimpleName());
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		log.info("AccessDeviceServlet post request");
 		processRequest(request, response);
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		log.info("AccessDeviceServlet get request");
 		processRequest(request, response);
 	}
 
 	private void processRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		ICommand command = commandsFactory.getCommand(request);
+		AbstractDeviceCommand command = deviceCommandsFactory.getCommand(request);
 		String page = command.execute(request, response, accessDevice);
 
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);

@@ -36,7 +36,7 @@ public class LockedCardsJournalDao extends AbstractDao<LockCardRecord> {
 	}
 
 	@Override
-	protected void fillInsertStatement(PreparedStatement statement, LockCardRecord entity) throws SQLException {
+	protected void fillStatement(PreparedStatement statement, LockCardRecord entity) throws SQLException {
 		statement.setInt(1, entity.getAccessCardId());
 		statement.setTimestamp(2, Converter.toTimestamp(entity.getLockingDateTime()));
 	}

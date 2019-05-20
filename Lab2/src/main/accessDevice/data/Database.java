@@ -19,6 +19,8 @@ public class Database {
 	private VisitorsJournalDao visitorsJournalDao;
 	private LockedCardsJournalDao lockedCardsJournalDao;
 
+	private AdminDao adminDao;
+
 	private Logger log = Logger.getLogger(Database.class.getSimpleName());
 
 	public Database() {
@@ -28,22 +30,27 @@ public class Database {
 			e.printStackTrace();
 		}
 
-		log.info("Database URI: " + getClass().getResource(DATABASE_FILE_NAME).getPath());
-		//getClass().getResource(DATABASE_FILE_NAME).get
-		String url = "jdbc:sqlite:" + getClass().getResource(DATABASE_FILE_NAME).getPath().replace("%20", " ");
+		String databasePath = getClass().getResource(DATABASE_FILE_NAME)
+		                                .getPath()
+		                                .replace("%20", " ");
+
+		String url = "jdbc:sqlite:" + databasePath;
 		try {
 			connection = DriverManager.getConnection(url);
-
-			System.out.println("Connection established");
+			log.info("Database opened: " + databasePath);
 		} catch (SQLException e) {
 			e.printStackTrace();
+			log.severe("Can't open database. DB path: " + databasePath + "Cause:\n" + e);
 		}
+
 
 		accessCardDao = new AccessCardDao(connection);
 		personDao = new PersonDao(connection);
 		scheduleDao = new ScheduleDao(connection);
 		visitorsJournalDao = new VisitorsJournalDao(connection);
 		lockedCardsJournalDao = new LockedCardsJournalDao(connection);
+
+		adminDao = new AdminDao(connection);
 	}
 
 	public void clearDatabase() {
@@ -73,5 +80,9 @@ public class Database {
 
 	public LockedCardsJournalDao getLockedCardsJournalDao() {
 		return lockedCardsJournalDao;
+	}
+
+	public AdminDao getAdminDao() {
+		return adminDao;
 	}
 }

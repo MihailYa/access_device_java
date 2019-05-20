@@ -1,9 +1,10 @@
-package main.server.commands.commands.deviceCommands;
+package main.server.commands.deviceCommands.commands;
 
 import main.accessDevice.AccessDevice;
 import main.accessDevice.deviceComponents.buttonsPanel.ButtonsPanel;
 import main.accessDevice.deviceComponents.buttonsPanel.buttons.Button;
 import main.accessDevice.deviceComponents.buttonsPanel.buttons.ButtonHelper;
+import main.server.commands.deviceCommands.AbstractDeviceCommand;
 import main.server.managers.PageManager;
 import main.server.servlets.AccessDeviceServlet;
 

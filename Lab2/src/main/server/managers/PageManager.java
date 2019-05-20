@@ -14,6 +14,12 @@ public class PageManager {
 	public static class PagesIds {
 		public static final String DEFAULT_PAGE = "defaultPage";
 		public static final String ACCESS_DEVICE_PAGE = "accessDevicePage";
+
+
+
+		public static final String ADMIN_PANEL_SERVLET = "adminPanelServlet";
+		public static final String ADMIN_DEFAULT_PAGE = "adminPanelPage";
+		public static final String ADMIN_PANEL_PAGE = "adminPanelPage";
 	}
 
 	private ResourceBundle resourceBundle;

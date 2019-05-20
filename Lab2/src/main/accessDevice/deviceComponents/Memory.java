@@ -2,7 +2,9 @@ package main.accessDevice.deviceComponents;
 
 import main.accessDevice.data.Database;
 import main.accessDevice.data.dao.AccessCardDao;
+import main.accessDevice.data.dao.AdminDao;
 import main.accessDevice.data.entities.AccessCard;
+import main.accessDevice.data.entities.Admin;
 import main.accessDevice.data.entities.LockCardRecord;
 import main.accessDevice.data.entities.VisitRecord;
 
@@ -26,6 +28,8 @@ public class Memory {
 	private String controlCode;
 	private Properties properties;
 	private Database database;
+
+	private AdminPanel adminPanel;
 
 	public Memory() {
 		database = new Database();
@@ -103,8 +107,23 @@ public class Memory {
 		database.getVisitorsJournalDao().insert(visitRecord);
 	}
 
+	public boolean verifyAdmin(Admin admin) {
+		AdminDao adminDao = database.getAdminDao();
+		Admin foundAdmin = adminDao.find(admin);
+		if(foundAdmin != null) {
+			admin.setId(foundAdmin.getId());
+			return true;
+		}
 
-	// TODO: Add accessDeviceDao getter
+		return false;
+	}
+
+	public AdminPanel getAdminPanel() {
+		if(adminPanel == null)
+			adminPanel = new AdminPanel(database);
+
+		return adminPanel;
+	}
 
 	private void setProperty(String propertyName, String value) {
 		properties.setProperty(propertyName, value);

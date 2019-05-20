@@ -35,7 +35,7 @@ public class AccessCardDao extends AbstractDao<AccessCard> {
 	}
 
 	@Override
-	protected void fillInsertStatement(PreparedStatement statement, AccessCard entity) throws SQLException {
+	protected void fillStatement(PreparedStatement statement, AccessCard entity) throws SQLException {
 		statement.setInt(1, entity.getPersonId());
 		statement.setInt(2, entity.getScheduleId());
 		statement.setBoolean(3, entity.isLocked());

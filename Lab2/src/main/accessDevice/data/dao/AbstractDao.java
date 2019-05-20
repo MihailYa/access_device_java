@@ -1,7 +1,6 @@
 package main.accessDevice.data.dao;
 
 import main.accessDevice.data.util.SqlStatementsManager;
-import main.accessDevice.data.entities.AccessCard;
 import main.accessDevice.data.entities.BaseEntity;
 
 import java.sql.Connection;
@@ -53,7 +52,7 @@ public abstract class AbstractDao<E extends BaseEntity> {
 		PreparedStatement statement = getStatement(SqlStatementsManager.OperationType.INSERT);
 		int generatedId;
 		try {
-			fillInsertStatement(statement, entity);
+			fillStatement(statement, entity);
 			statement.executeUpdate();
 
 			generatedId = statement.getGeneratedKeys().getInt(1);
@@ -144,7 +143,7 @@ public abstract class AbstractDao<E extends BaseEntity> {
 
 	protected abstract E createEntityFromRow(ResultSet row) throws SQLException;
 
-	protected abstract void fillInsertStatement(PreparedStatement statement, E entity) throws SQLException;
+	protected abstract void fillStatement(PreparedStatement statement, E entity) throws SQLException;
 
 	protected abstract void fillUpdateStatement(PreparedStatement statement, E entity) throws SQLException;
 }

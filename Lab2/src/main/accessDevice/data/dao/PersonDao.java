@@ -35,7 +35,7 @@ public class PersonDao extends AbstractDao<Person> {
 	}
 
 	@Override
-	protected void fillInsertStatement(PreparedStatement statement, Person entity) throws SQLException {
+	protected void fillStatement(PreparedStatement statement, Person entity) throws SQLException {
 		statement.setString(1, entity.getName());
 		statement.setString(2, entity.getSurname());
 	}

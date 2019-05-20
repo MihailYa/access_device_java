@@ -19,7 +19,8 @@ public class SqlStatementsManager {
 		INSERT("Insert"),
 		UPDATE("Update"),
 		DELETE("Delete"),
-		DELETE_ALL("DeleteAll");
+		DELETE_ALL("DeleteAll"),
+		FIND("Find");
 
 		private String operationPrefix;
 

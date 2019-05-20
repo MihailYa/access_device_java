@@ -1,12 +1,17 @@
-package main.server.commands.commands.util;
+package main.server.commands.util;
 
 import main.accessDevice.AccessDevice;
 import main.accessDevice.data.entities.AccessCard;
+import main.accessDevice.data.entities.LockCardRecord;
+import main.accessDevice.data.entities.VisitRecord;
+import main.accessDevice.deviceComponents.AdminPanel;
 import main.accessDevice.deviceComponents.buttonsPanel.buttons.Button;
 import main.server.servlets.AccessDeviceServlet;
+import main.server.servlets.AdminPanelServlet;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 public class PageFiller {
 	public static void outputAccessDevice(HttpServletRequest request, HttpServletResponse response,
@@ -35,5 +40,20 @@ public class PageFiller {
 		if (refreshSeconds != 0) {
 			response.setIntHeader("Refresh", refreshSeconds);
 		}
+	}
+
+	public static void outputAdminPanelInfo(HttpServletRequest request, HttpServletResponse response,
+	                               AccessDevice accessDevice) {
+		AdminPanel adminPanel = accessDevice.getMemory()
+		                                    .getAdminPanel();
+
+		List<AccessCard> accessCards = adminPanel.getAllAccessCards();
+		request.setAttribute(AdminPanelServlet.OUT_PARAM_ACCESS_CARDS, accessCards);
+
+		List<VisitRecord> visitRecords = adminPanel.getAllVisitRecords();
+		request.setAttribute(AdminPanelServlet.OUT_PARAM_VISIT_RECORDS, visitRecords);
+
+		List<LockCardRecord> lockCardRecords = adminPanel.getAllLockCardRecords();
+		request.setAttribute(AdminPanelServlet.OUT_PARAM_LOCK_CARD_RECORDS, lockCardRecords);
 	}
 }

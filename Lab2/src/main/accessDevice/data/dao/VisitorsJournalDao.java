@@ -35,7 +35,7 @@ public class VisitorsJournalDao extends AbstractDao<VisitRecord> {
 	}
 
 	@Override
-	protected void fillInsertStatement(PreparedStatement statement, VisitRecord entity) throws SQLException {
+	protected void fillStatement(PreparedStatement statement, VisitRecord entity) throws SQLException {
 		statement.setInt(1, entity.getAccessCardId());
 		statement.setTimestamp(2, Converter.toTimestamp(entity.getVisitDateTime()));
 	}

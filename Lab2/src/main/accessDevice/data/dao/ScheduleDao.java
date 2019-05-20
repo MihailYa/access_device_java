@@ -36,7 +36,7 @@ public class ScheduleDao extends AbstractDao<Schedule> {
 	}
 
 	@Override
-	protected void fillInsertStatement(PreparedStatement statement, Schedule entity) throws SQLException {
+	protected void fillStatement(PreparedStatement statement, Schedule entity) throws SQLException {
 		statement.setTime(1, Time.valueOf(entity.getBeginTime()));
 		statement.setTime(2, Time.valueOf(entity.getEndTime()));
 	}

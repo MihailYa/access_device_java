@@ -1,15 +1,14 @@
-package main.server.commands.commands;
+package main.server.commands.deviceCommands.commands;
 
 import main.accessDevice.AccessDevice;
-import main.server.commands.ICommand;
-import main.server.commands.commands.util.PageFiller;
+import main.server.commands.deviceCommands.AbstractDeviceCommand;
+import main.server.commands.util.PageFiller;
 import main.server.managers.PageManager;
-import main.server.servlets.AccessDeviceServlet;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class EmptyCommand implements ICommand {
+public class DeviceEmptyCommand extends AbstractDeviceCommand {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response, AccessDevice accessDevice) {
 		PageFiller.outputAccessDevice(request, response, accessDevice);

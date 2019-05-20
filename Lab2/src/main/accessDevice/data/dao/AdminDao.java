@@ -15,6 +15,24 @@ public class AdminDao extends AbstractDao<Admin> {
 		super(connection);
 	}
 
+	public Admin find(Admin entity) {
+		PreparedStatement statement = getStatement(SqlStatementsManager.OperationType.FIND);
+		try {
+			fillStatement(statement, entity);
+			ResultSet resultSet = statement.executeQuery();
+			if(resultSet.next()) {
+				return createEntityFromRow(resultSet);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			closePrepareStatement(statement);
+		}
+
+		return null;
+	}
+
 	@Override
 	protected PreparedStatement getStatement(SqlStatementsManager.OperationType operationType) {
 		String sqlStatement = SqlStatementsManager.getInstance()
@@ -35,7 +53,7 @@ public class AdminDao extends AbstractDao<Admin> {
 	}
 
 	@Override
-	protected void fillInsertStatement(PreparedStatement statement, Admin entity) throws SQLException {
+	protected void fillStatement(PreparedStatement statement, Admin entity) throws SQLException {
 		statement.setString(1, entity.getLogin());
 		statement.setString(2, entity.getPassword());
 	}

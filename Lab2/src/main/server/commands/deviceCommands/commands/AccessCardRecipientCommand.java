@@ -1,8 +1,8 @@
-package main.server.commands.commands.deviceCommands;
+package main.server.commands.deviceCommands.commands;
 
 import main.accessDevice.AccessDevice;
 import main.accessDevice.data.entities.AccessCard;
-import main.server.commands.commands.EmptyCommand;
+import main.server.commands.deviceCommands.AbstractDeviceCommand;
 import main.server.managers.PageManager;
 import main.server.servlets.AccessDeviceServlet;
 
@@ -15,7 +15,7 @@ public class AccessCardRecipientCommand extends AbstractDeviceCommand {
 		String accessCardId = request.getParameter(AccessDeviceServlet.PARAM_ACCESS_CARD_ID);
 
 		if(accessCardId == null || accessCardId.isEmpty()) {
-			return new EmptyCommand().execute(request, response, accessDevice);
+			return new DeviceEmptyCommand().execute(request, response, accessDevice);
 		}
 
 		AccessCard accessCard = new AccessCard();

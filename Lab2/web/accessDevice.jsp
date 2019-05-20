@@ -51,5 +51,18 @@
     </label>
     <input type="submit">
 </form>
+
+<form action="AccessDevice" method="post">
+    <input type="hidden" name="command" value="adminLoginCommand">
+    <label>
+        Login
+        <input type="text" name="adminLogin">
+    </label>
+    <label>
+        Password
+        <input type="password" name="adminPassword">
+    </label>
+    <input type="submit">
+</form>
 </body>
 </html>
