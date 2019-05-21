@@ -3,21 +3,16 @@ package main.server.servlets;
 import main.accessDevice.AccessDevice;
 import main.server.commands.AbstractCommandsFactory;
 import main.server.commands.CommandsFactoryCreator;
-import main.server.commands.ICommand;
-import main.server.commands.deviceCommands.AbstractDeviceCommand;
-import main.server.commands.deviceCommands.DeviceCommandsFactory;
 import main.server.managers.AccessDevicesManager;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.logging.Logger;
 
-@WebServlet(name = "AccessDeviceServlet", urlPatterns = "/")
+@WebServlet(name = "AccessDeviceServlet", urlPatterns = "/AccessDevice")
 public class AccessDeviceServlet extends AbstractServlet {
 	public static final String PARAM_NUMBER_BUTTON = "numberButton";
 	public static final String PARAM_CALL_BUTTON = "callButton";

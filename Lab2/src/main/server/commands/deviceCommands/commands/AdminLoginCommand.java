@@ -30,8 +30,6 @@ public class AdminLoginCommand extends AbstractDeviceCommand {
 			if(accessDevice.getMemory().verifyAdmin(admin)) {
 				request.getSession().setAttribute(AdminPanelServlet.SESSION_ADMIN_ID, admin.getId());
 
-				request.setAttribute(DeviceCommandsFactory.PARAM_COMMAND, "adminPanelCommand");
-				//PageFiller.outputAdminPanelInfo(request, response, accessDevice);
 				return PageManager.getInstance().getPage(PageManager.PagesIds.ADMIN_PANEL_SERVLET);
 			} else {
 				log.info("Access denied for login: " + login);

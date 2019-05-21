@@ -12,12 +12,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin panel</title>
-    <style>
-        <%@ include file="css/style.css"%>
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<h1>AccessCards table</h1>
+<form action="AdminPanelServlet" method="post">
+    <input type="hidden" name="command" value="logoutCommand">
+    <input type="submit" value="Logout" class="defaultInput">
+</form>
+
+<h1 style="margin-top: 20px;">AccessCards table</h1>
 <table class="simpleTable" cellspacing="0">
     <tr>
         <th>AccessCardId</th>

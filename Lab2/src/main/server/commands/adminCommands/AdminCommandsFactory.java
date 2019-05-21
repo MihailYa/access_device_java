@@ -4,6 +4,7 @@ import main.server.commands.AbstractCommandsFactory;
 import main.server.commands.ICommand;
 import main.server.commands.adminCommands.commands.AdminEmptyCommand;
 import main.server.commands.adminCommands.commands.AdminPanelCommand;
+import main.server.commands.adminCommands.commands.LogoutCommand;
 import main.server.commands.adminCommands.commands.UpdateAccessCardCommand;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +18,7 @@ public class AdminCommandsFactory extends AbstractCommandsFactory {
 	public AdminCommandsFactory() {
 		commands.put("adminPanelCommand", new AdminPanelCommand());
 		commands.put("updateAccessCard", new UpdateAccessCardCommand());
+		commands.put("logoutCommand", new LogoutCommand());
 	}
 
 	@Override

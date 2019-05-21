@@ -99,3 +99,18 @@ input[type=text]:focus {
 .defaultInput:hover{
 	background: #0896B2;
 }
+
+.imageDiv {
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+}
+
+.imageDiv img {
+	width: 60px;
+	height: 60px;
+	float: left;
+}
+
+.imagesTd {
+}

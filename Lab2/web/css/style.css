@@ -15,6 +15,23 @@ h1 {
 
 }
 
+.defaultInput {
+	background: #077187;
+	border: none;
+	color: #ffffff;
+	font-family: sans-serif;
+	padding: 5px 10px;
+	/*font-size: 20pt;*/
+	-webkit-transition: background-color 0.2s ease-out;
+	-moz-transition: background-color 0.2s ease-out;
+	-o-transition: background-color 0.2s ease-out;
+	transition: background-color 0.2s ease-out;
+}
+
+.defaultInput:hover{
+	background: #0896B2;
+}
+
 .simpleTable {
 	border-collapse:separate; 
     border-spacing: 0 7px;
@@ -51,3 +68,9 @@ h1 {
 .simpleTable td:last-child {
 	border-right: solid 1px #5D737E;
 }
+
+.imageDiv {
+	width: 40%;
+	display: inline-block;
+}
+

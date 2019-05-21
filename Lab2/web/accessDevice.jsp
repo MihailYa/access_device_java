@@ -6,21 +6,44 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <title>AccessDevice</title>
-    <style>
-        <%@ include file="css/accessDevice.css"%>
-    </style>
+    <link rel="stylesheet" href="css/accessDevice.css">
 </head>
 <body>
 <div class="accessDeviceDiv">
     <form action="AccessDevice" method="post">
-        <p>Door lock status: ${isDoorLocked}</p>
-        <p>Bell status: ${isBellRinging}</p>
         <input type="hidden" name="command" value="buttonsPanelCommand">
         <table cellspacing="0">
-            <tr><td colspan="3" class="guiDisplay"><p>${message}</p></td></tr>
+            <tr>
+                <td colspan="3" class="imagesTd">
+                    <div class="imageDiv">
+                        <c:choose>
+                            <c:when test="${isDoorLocked}">
+                                <img src="img/lock-solid.svg" alt="lockedDoor">
+                            </c:when>
+                            <c:otherwise>
+                                <img src="img/lock-open-solid.svg" alt="unLockedDoor">
+                            </c:otherwise>
+                        </c:choose>
+                    </div>
+                    <div class="imageDiv">
+                        <c:choose>
+                            <c:when test="${isBellRinging}">
+                                <img src="img/volume-up-solid.svg" alt="ringingBell">
+                            </c:when>
+                            <c:otherwise>
+                                <img src="img/volume-off-solid.svg" alt="bell">
+                            </c:otherwise>
+                        </c:choose>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" class="guiDisplay"><p>${message}</p></td>
+            </tr>
             <tr>
                 <td><input type="submit" name="numberButton" value="1" class="numberButton"></td>
                 <td><input type="submit" name="numberButton" value="2" class="numberButton"></td>
@@ -44,7 +67,8 @@
             <tr>
                 <td class="holdCall" colspan="3"><label>
                     Hold CALL
-                    <input type="checkbox" name="callButtonPress" value="CALL" class="numberButton" onChange="this.form.submit()" ${callButtonChecked}/>
+                    <input type="checkbox" name="callButtonPress" value="CALL" class="numberButton"
+                           onChange="this.form.submit()" ${callButtonChecked}/>
                 </label></td>
             </tr>
         </table>
@@ -57,7 +81,7 @@
         </label>
         <br>
         <br>
-        <input type="submit"  class="defaultInput">
+        <input type="submit" class="defaultInput">
     </form>
 </div>
 
