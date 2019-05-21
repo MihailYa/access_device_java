@@ -1,10 +1,11 @@
 package main.server.servlets;
 
 import main.accessDevice.AccessDevice;
-import main.server.commands.commands.AbstractAdminCommand;
-import main.server.commands.commands.AdminCommandsFactory;
-import main.server.commands.deviceCommands.DeviceCommandsFactory;
-import main.server.commands.deviceCommands.IDeviceCommand;
+import main.server.commands.AbstractCommandsFactory;
+import main.server.commands.CommandsFactoryCreator;
+import main.server.commands.ICommand;
+import main.server.commands.adminCommands.AbstractAdminCommand;
+import main.server.commands.adminCommands.AdminCommandsFactory;
 import main.server.managers.AccessDevicesManager;
 
 import javax.servlet.RequestDispatcher;
@@ -17,7 +18,7 @@ import java.io.IOException;
 import java.util.logging.Logger;
 
 @WebServlet(name = "AdminPanelServlet", urlPatterns = "/AdminPanelServlet")
-public class AdminPanelServlet extends HttpServlet {
+public class AdminPanelServlet extends AbstractServlet {
 
 	public static final String PARAM_ACCESS_CARD_ID = "accessCardId";
 	public static final String PARAM_ACCESS_CARD_PERSON_ID = "accessCardPersonId";
@@ -31,26 +32,18 @@ public class AdminPanelServlet extends HttpServlet {
 	public static final String SESSION_ADMIN_ID = "sessionAdminId";
 
 	private AccessDevice accessDevice = AccessDevicesManager.getInstance().getAccessDevice();
-	private AdminCommandsFactory commandsFactory = AdminCommandsFactory.getInstance();
+	private AbstractCommandsFactory commandsFactory =
+			CommandsFactoryCreator.getInstance().getCommandsFactory(CommandsFactoryCreator.CommandsFactoryType.ADMIN_COMMANDS_FACTORY);
 
 	private Logger log = Logger.getLogger(AdminPanelServlet.class.getSimpleName());
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		log.info("AdminPanelServlet post request");
-		processRequest(request, response);
+		processRequest(commandsFactory, request, response, accessDevice);
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		log.info("AdminPanelServlet post request");
-		processRequest(request, response);
+		processRequest(commandsFactory, request, response, accessDevice);
 	}
 
-	private void processRequest(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		AbstractAdminCommand command = commandsFactory.getCommand(request);
-		String page = command.execute(request, response, accessDevice);
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
-		dispatcher.forward(request, response);
-	}
 }

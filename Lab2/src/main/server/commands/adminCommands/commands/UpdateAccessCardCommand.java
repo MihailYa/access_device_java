@@ -1,9 +1,8 @@
-package main.server.commands.commands.adminCommands;
+package main.server.commands.adminCommands.commands;
 
 import main.accessDevice.AccessDevice;
 import main.accessDevice.data.entities.AccessCard;
-import main.server.commands.commands.AbstractAdminCommand;
-import main.server.commands.deviceCommands.commands.DeviceEmptyCommand;
+import main.server.commands.adminCommands.AbstractAdminCommand;
 import main.server.managers.PageManager;
 import main.server.servlets.AdminPanelServlet;
 

@@ -1,8 +1,7 @@
-package main.server.commands.commands.adminCommands;
+package main.server.commands.adminCommands.commands;
 
 import main.accessDevice.AccessDevice;
-import main.server.commands.commands.AbstractAdminCommand;
-import main.server.commands.deviceCommands.IDeviceCommand;
+import main.server.commands.adminCommands.AbstractAdminCommand;
 import main.server.commands.deviceCommands.commands.DeviceEmptyCommand;
 import main.server.commands.util.PageFiller;
 import main.server.managers.PageManager;
