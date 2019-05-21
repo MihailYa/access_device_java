@@ -42,6 +42,11 @@ public class PageFiller {
 		}
 	}
 
+	public static void outputLoginErrorMessage(HttpServletRequest request, HttpServletResponse response,
+	                                      String loginErrorMessage) {
+		request.setAttribute(AccessDeviceServlet.OUT_LOGIN_ERROR_MESSAGE, loginErrorMessage);
+	}
+
 	public static void outputAdminPanelInfo(HttpServletRequest request, HttpServletResponse response,
 	                               AccessDevice accessDevice) {
 		AdminPanel adminPanel = accessDevice.getMemory()

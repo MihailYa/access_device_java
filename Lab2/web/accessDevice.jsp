@@ -87,6 +87,7 @@
 
 <br>
 <form action="AccessDevice" method="post" class="loginForm" style="margin-top: 20px;">
+    <p class="errorMessageP">${loginErrorMessage}</p>
     <input type="hidden" name="command" value="adminLoginCommand">
     <label>
         Login <br>

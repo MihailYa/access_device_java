@@ -32,6 +32,9 @@ public class AccessDeviceServlet extends AbstractServlet {
 	public static final String OUT_PARAM_INSERTED_CARD_ID = "insertedCardId";
 
 
+	public static final String OUT_LOGIN_ERROR_MESSAGE = "loginErrorMessage";
+
+
 	private static final String LOG_CONFIG_FILE = "/logging.properties";
 
 	static {

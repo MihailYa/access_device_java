@@ -83,6 +83,11 @@ input[type=text]:focus {
 	border-bottom: solid 2px #0896B2;
 }
 
+input[type=password]:focus {
+	outline: none;
+	border-bottom: solid 2px #0896B2;
+}
+
 .defaultInput {
 	background: #077187;
 	border: none;
@@ -113,4 +118,10 @@ input[type=text]:focus {
 }
 
 .imagesTd {
+}
+
+.errorMessageP {
+	font-family: sans-serif;
+	font-size: 12pt;
+	color: #C81D25;
 }

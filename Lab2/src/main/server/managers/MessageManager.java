@@ -12,7 +12,7 @@ public class MessageManager {
 	private static final String BUNDLE_NAME = "messages";
 
 	public static class MessagesIds {
-
+		public static final String WRONG_LOGIN_OR_PASSWORD = "wrongLoginOrPassword";
 	}
 
 	private ResourceBundle resourceBundle;
