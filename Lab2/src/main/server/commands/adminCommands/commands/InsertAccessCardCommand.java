@@ -10,27 +10,28 @@ import main.server.servlets.AdminPanelServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class UpdateAccessCardCommand extends AbstractAdminCommand {
+public class InsertAccessCardCommand extends AbstractAdminCommand {
+
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response, AccessDevice accessDevice) {
 		checkAdminSession(request);
 
 		try {
-		AccessCard accessCard = EntityFiller.fillAccessCard(request);
+			AccessCard accessCard = EntityFiller.fillAccessCardData(request);
+			if (accessCard == null) {
+				throw new RuntimeException("Wrong input data");
+			}
 
-		if(accessCard == null) {
-			throw new RuntimeException("Wrong input data");
-		}
+			accessDevice.getMemory()
+			            .getAdminPanel()
+			            .insertAccessCard(accessCard);
 
-		accessDevice.getMemory()
-		            .getAdminPanel()
-		            .updateAccessCard(accessCard);
+
 		} catch (Exception e) {
 			request.setAttribute(AdminPanelServlet.OUT_PARAM_ERROR_MESSAGE, "Error: " + e.getMessage());
 		}
 
 		outputAdminPanelInfo(request, response, accessDevice);
-
 
 		return PageManager.getInstance()
 		                  .getPage(PageManager.PagesIds.ADMIN_PANEL_PAGE);

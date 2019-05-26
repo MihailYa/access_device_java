@@ -2,10 +2,7 @@ package main.server.commands.adminCommands;
 
 import main.server.commands.AbstractCommandsFactory;
 import main.server.commands.ICommand;
-import main.server.commands.adminCommands.commands.AdminEmptyCommand;
-import main.server.commands.adminCommands.commands.AdminPanelCommand;
-import main.server.commands.adminCommands.commands.LogoutCommand;
-import main.server.commands.adminCommands.commands.UpdateAccessCardCommand;
+import main.server.commands.adminCommands.commands.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -13,11 +10,13 @@ import java.util.HashMap;
 public class AdminCommandsFactory extends AbstractCommandsFactory {
 	public static final String PARAM_COMMAND = "command";
 
-	private HashMap<String, AbstractAdminCommand> commands = new HashMap<String, AbstractAdminCommand>();
+	private HashMap<String, AbstractAdminCommand> commands = new HashMap<>();
 
 	public AdminCommandsFactory() {
 		commands.put("adminPanelCommand", new AdminPanelCommand());
 		commands.put("updateAccessCard", new UpdateAccessCardCommand());
+		commands.put("insertAccessCard", new InsertAccessCardCommand());
+		commands.put("deleteAccessCard", new DeleteAccessCardCommand());
 		commands.put("logoutCommand", new LogoutCommand());
 	}
 
@@ -28,7 +27,7 @@ public class AdminCommandsFactory extends AbstractCommandsFactory {
 		AbstractAdminCommand command = commands.get(requestCommand);
 
 		if(command == null) {
-			command = new AdminEmptyCommand();
+			command = new AdminDefaultCommand();
 		}
 
 		return command;

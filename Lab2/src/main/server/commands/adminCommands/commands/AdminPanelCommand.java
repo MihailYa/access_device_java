@@ -11,23 +11,11 @@ import java.util.logging.Logger;
 
 public class AdminPanelCommand extends AbstractAdminCommand {
 
-	Logger log = Logger.getLogger(AdminPanelCommand.class.getSimpleName());
-
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response, AccessDevice accessDevice) {
-		log.info("Execute AdminPanelCommand command");
-
-		Object adminId = request.getSession()
-		                          .getAttribute(AdminPanelServlet.SESSION_ADMIN_ID);
-
-		if(adminId == null) {
-			log.info("adminId == null. Return empty command");
-			return new AdminEmptyCommand().execute(request, response, accessDevice);
-		}
-
+		checkAdminSession(request);
 
 		outputAdminPanelInfo(request, response, accessDevice);
-
 
 		return PageManager.getInstance()
 		                  .getPage(PageManager.PagesIds.ADMIN_PANEL_PAGE);

@@ -2,7 +2,7 @@ package main.server.commands.deviceCommands;
 
 import main.server.commands.AbstractCommandsFactory;
 import main.server.commands.ICommand;
-import main.server.commands.deviceCommands.commands.DeviceEmptyCommand;
+import main.server.commands.deviceCommands.commands.DeviceDefaultCommand;
 import main.server.commands.deviceCommands.commands.AccessCardRecipientCommand;
 import main.server.commands.deviceCommands.commands.AdminLoginCommand;
 import main.server.commands.deviceCommands.commands.ButtonsPanelCommand;
@@ -29,7 +29,7 @@ public class DeviceCommandsFactory extends AbstractCommandsFactory {
 		AbstractDeviceCommand command = commands.get(requestCommand);
 
 		if(command == null) {
-			command = new DeviceEmptyCommand();
+			command = new DeviceDefaultCommand();
 		}
 
 		return command;

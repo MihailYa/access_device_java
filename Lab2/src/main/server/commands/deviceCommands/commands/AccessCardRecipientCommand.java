@@ -15,7 +15,7 @@ public class AccessCardRecipientCommand extends AbstractDeviceCommand {
 		String accessCardId = request.getParameter(AccessDeviceServlet.PARAM_ACCESS_CARD_ID);
 
 		if(accessCardId == null || accessCardId.isEmpty()) {
-			return new DeviceEmptyCommand().execute(request, response, accessDevice);
+			return new DeviceDefaultCommand().execute(request, response, accessDevice);
 		}
 
 		AccessCard accessCard = new AccessCard();

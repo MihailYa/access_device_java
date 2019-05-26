@@ -1,14 +1,7 @@
 package main.server.commands;
 
-import main.server.commands.adminCommands.AbstractAdminCommand;
 import main.server.commands.adminCommands.AdminCommandsFactory;
-import main.server.commands.adminCommands.commands.AdminEmptyCommand;
-import main.server.commands.adminCommands.commands.AdminPanelCommand;
-import main.server.commands.adminCommands.commands.UpdateAccessCardCommand;
 import main.server.commands.deviceCommands.DeviceCommandsFactory;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
 
 public class CommandsFactoryCreator {
 	private static CommandsFactoryCreator ourInstance = new CommandsFactoryCreator();

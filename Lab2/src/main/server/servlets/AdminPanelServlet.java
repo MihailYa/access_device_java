@@ -23,11 +23,18 @@ public class AdminPanelServlet extends AbstractServlet {
 	public static final String PARAM_ACCESS_CARD_ID = "accessCardId";
 	public static final String PARAM_ACCESS_CARD_PERSON_ID = "accessCardPersonId";
 	public static final String PARAM_ACCESS_CARD_SCHEDULE_ID = "accessCardScheduleId";
+	public static final String PARAM_ACCESS_CARD_PERSON_NAME = "accessCardPersonName";
+	public static final String PARAM_ACCESS_CARD_PERSON_SURNAME = "accessCardPersonSurname";
+	public static final String PARAM_ACCESS_CARD_SCHEDULE_BEGIN_TIME = "accessCardScheduleBeginTime";
+	public static final String PARAM_ACCESS_CARD_SCHEDULE_END_TIME = "accessCardScheduleEndTime";
 	public static final String PARAM_IS_ACCESS_CARD_LOCKED = "isAccessCardLocked";
 
 	public static final String OUT_PARAM_ACCESS_CARDS = "accessCards";
 	public static final String OUT_PARAM_VISIT_RECORDS = "visitRecords";
 	public static final String OUT_PARAM_LOCK_CARD_RECORDS = "lockCardRecords";
+
+	public static final String OUT_PARAM_ERROR_MESSAGE = "errorMessage";
+
 
 	public static final String SESSION_ADMIN_ID = "sessionAdminId";
 

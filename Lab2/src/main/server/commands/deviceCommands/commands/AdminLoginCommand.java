@@ -42,6 +42,6 @@ public class AdminLoginCommand extends AbstractDeviceCommand {
 
 
 
-		return new DeviceEmptyCommand().execute(request, response, accessDevice);
+		return new DeviceDefaultCommand().execute(request, response, accessDevice);
 	}
 }

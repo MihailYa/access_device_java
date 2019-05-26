@@ -15,6 +15,31 @@ h1 {
 
 }
 
+input[type=text], input[type=password] {
+	padding: 5px 10px;
+	border: none;
+	border-bottom: solid 2px #CCCCCC;
+	background: #f9f9f9;
+}
+
+input[type=text]:focus {
+	outline: none;
+	border-bottom: solid 2px #0896B2;
+}
+
+input[type=password]:focus {
+	outline: none;
+	border-bottom: solid 2px #0896B2;
+}
+
+.hiddenInput {
+	display: none;
+}
+
+.editCardButton {
+	display: none;
+}
+
 .defaultInput {
 	background: #077187;
 	border: none;
@@ -74,3 +99,10 @@ h1 {
 	display: inline-block;
 }
 
+.errorMessageP {
+	font-family: sans-serif;
+	font-size: 12pt;
+	color: #C81D25;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}

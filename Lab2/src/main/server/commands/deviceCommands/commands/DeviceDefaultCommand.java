@@ -8,7 +8,7 @@ import main.server.managers.PageManager;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class DeviceEmptyCommand extends AbstractDeviceCommand {
+public class DeviceDefaultCommand extends AbstractDeviceCommand {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response, AccessDevice accessDevice) {
 		PageFiller.outputAccessDevice(request, response, accessDevice);
