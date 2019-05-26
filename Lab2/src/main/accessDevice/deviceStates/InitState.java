@@ -3,8 +3,8 @@ package main.accessDevice.deviceStates;
 import main.accessDevice.AccessDevice;
 import main.accessDevice.data.entities.AccessCard;
 import main.accessDevice.deviceComponents.buttonsPanel.buttons.Button;
-import main.accessDevice.util.DeviceConfigManager;
-import main.accessDevice.util.DeviceMessagesManager;
+import main.accessDevice.util.managers.DeviceConfigManager;
+import main.accessDevice.util.managers.DeviceMessagesManager;
 
 public class InitState extends AccessDeviceState {
 

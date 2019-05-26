@@ -9,7 +9,7 @@ import main.accessDevice.deviceComponents.buttonsPanel.IButtonsPanelEventsReceiv
 import main.accessDevice.deviceComponents.buttonsPanel.buttons.Button;
 import main.accessDevice.deviceStates.AccessDeviceState;
 import main.accessDevice.deviceStates.InitState;
-import main.accessDevice.util.TimeLeftTimer;
+import main.accessDevice.util.timer.TimeLeftTimer;
 
 import java.util.logging.Logger;
 

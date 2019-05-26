@@ -1,4 +1,4 @@
-package main.accessDevice.util;
+package main.accessDevice.util.security;
 
 public class CodeMasker {
 

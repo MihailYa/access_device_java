@@ -1,11 +1,11 @@
 package main.accessDevice.deviceStates;
 
 import main.accessDevice.AccessDevice;
-import main.accessDevice.util.DeviceConfigManager;
-import main.accessDevice.util.DeviceMessagesManager;
+import main.accessDevice.util.managers.DeviceConfigManager;
+import main.accessDevice.util.managers.DeviceMessagesManager;
 import main.accessDevice.deviceComponents.accessCardRecipient.AccessCardRecipient;
 import main.accessDevice.deviceComponents.buttonsPanel.buttons.Button;
-import main.accessDevice.util.CodeMasker;
+import main.accessDevice.util.security.CodeMasker;
 
 public class AccessCodeInputState extends AccessDeviceState {
 

@@ -7,6 +7,7 @@ import main.accessDevice.data.entities.AccessCard;
 import main.accessDevice.data.entities.Admin;
 import main.accessDevice.data.entities.LockCardRecord;
 import main.accessDevice.data.entities.VisitRecord;
+import main.accessDevice.util.security.Encoder;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -14,6 +15,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.List;
 import java.util.Properties;
 import java.util.logging.Logger;
 
@@ -108,6 +110,7 @@ public class Memory {
 	}
 
 	public boolean verifyAdmin(Admin admin) {
+		admin.setPassword(Encoder.md5(admin.getPassword()));
 		AdminDao adminDao = database.getAdminDao();
 		Admin foundAdmin = adminDao.find(admin);
 		if(foundAdmin != null) {

@@ -1,8 +1,8 @@
 package main.accessDevice.deviceStates;
 
 import main.accessDevice.AccessDevice;
-import main.accessDevice.util.DeviceConfigManager;
-import main.accessDevice.util.DeviceMessagesManager;
+import main.accessDevice.util.managers.DeviceConfigManager;
+import main.accessDevice.util.managers.DeviceMessagesManager;
 import main.accessDevice.deviceComponents.buttonsPanel.buttons.Button;
 
 public class DoorUnlockedState extends AccessDeviceState {

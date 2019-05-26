@@ -1,4 +1,4 @@
-package main.accessDevice.util;
+package main.accessDevice.util.timer;
 
 public abstract class StopableRunnable implements Runnable {
 	protected boolean isStoped = false;
