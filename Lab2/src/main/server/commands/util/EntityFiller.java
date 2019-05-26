@@ -17,8 +17,11 @@ public class EntityFiller {
 		String isAccessCardLocked = request.getParameter(AdminPanelServlet.PARAM_IS_ACCESS_CARD_LOCKED);
 
 		if (accessCardId == null
+		    || accessCardId.isEmpty()
 		    || personId == null
+		    || personId.isEmpty()
 		    || scheduleId == null
+		    || scheduleId.isEmpty()
 		) {
 			throw new RuntimeException("Wrong input data for access card");
 		}
@@ -51,7 +54,9 @@ public class EntityFiller {
 		String accessCardPersonSurname = request.getParameter(AdminPanelServlet.PARAM_ACCESS_CARD_PERSON_SURNAME);
 
 		if (accessCardPersonName == null
-		    || accessCardPersonSurname == null) {
+		    || accessCardPersonName.isEmpty()
+		    || accessCardPersonSurname == null
+		    || accessCardPersonSurname.isEmpty()) {
 			throw new RuntimeException("Wrong input data for person");
 		}
 
@@ -67,7 +72,9 @@ public class EntityFiller {
 		String accessCardScheduleEndTime = request.getParameter(AdminPanelServlet.PARAM_ACCESS_CARD_SCHEDULE_END_TIME);
 
 		if (accessCardScheduleBeginTime == null
-		    || accessCardScheduleEndTime == null) {
+		    || accessCardScheduleBeginTime.isEmpty()
+		    || accessCardScheduleEndTime == null
+		    || accessCardScheduleEndTime.isEmpty()) {
 			throw new RuntimeException("Wrong input data for schedule");
 		}
 
@@ -75,7 +82,7 @@ public class EntityFiller {
 		LocalTime beginTime = LocalTime.parse(accessCardScheduleBeginTime);
 		LocalTime endTime = LocalTime.parse(accessCardScheduleEndTime);
 
-		if(beginTime.isAfter(endTime))
+		if (beginTime.isAfter(endTime))
 			throw new RuntimeException("Wrong input data for schedule. \"End time\" should be after \"Begin time\"");
 
 		schedule.setBeginTime(beginTime);
