@@ -12,7 +12,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin panel</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/adminPanel.css">
     <script src="jquery-3.4.1.min.js">
     </script>
     <script>

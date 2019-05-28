@@ -12,10 +12,9 @@ import javax.servlet.http.HttpSession;
 public class LogoutCommand extends AbstractAdminCommand {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response, AccessDevice accessDevice) {
-		HttpSession session = request.getSession();
-		if (session.getAttribute(AdminPanelServlet.SESSION_ADMIN_ID) != null) {
-			session.removeAttribute(AdminPanelServlet.SESSION_ADMIN_ID);
-		}
+		HttpSession session = request.getSession(false);
+		if (session != null)
+			session.invalidate();
 
 		return new DeviceDefaultCommand().execute(request, response, accessDevice);
 	}
