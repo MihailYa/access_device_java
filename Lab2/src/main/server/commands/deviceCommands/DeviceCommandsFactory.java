@@ -1,7 +1,7 @@
 package main.server.commands.deviceCommands;
 
 import main.server.commands.AbstractCommandsFactory;
-import main.server.commands.ICommand;
+import main.server.commands.Command;
 import main.server.commands.deviceCommands.commands.DeviceDefaultCommand;
 import main.server.commands.deviceCommands.commands.AccessCardRecipientCommand;
 import main.server.commands.deviceCommands.commands.AdminLoginCommand;
@@ -23,7 +23,7 @@ public class DeviceCommandsFactory extends AbstractCommandsFactory {
 	}
 
 	@Override
-	public ICommand getCommand(HttpServletRequest request) {
+	public Command getCommand(HttpServletRequest request) {
 		String requestCommand = request.getParameter(PARAM_COMMAND);
 
 		AbstractDeviceCommand command = commands.get(requestCommand);

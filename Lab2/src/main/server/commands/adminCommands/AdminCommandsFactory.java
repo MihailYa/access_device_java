@@ -1,7 +1,7 @@
 package main.server.commands.adminCommands;
 
 import main.server.commands.AbstractCommandsFactory;
-import main.server.commands.ICommand;
+import main.server.commands.Command;
 import main.server.commands.adminCommands.commands.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +21,7 @@ public class AdminCommandsFactory extends AbstractCommandsFactory {
 	}
 
 	@Override
-	public ICommand getCommand(HttpServletRequest request) {
+	public Command getCommand(HttpServletRequest request) {
 		String requestCommand = request.getParameter(PARAM_COMMAND);
 
 		AbstractAdminCommand command = commands.get(requestCommand);

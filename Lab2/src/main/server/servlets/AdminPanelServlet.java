@@ -3,15 +3,10 @@ package main.server.servlets;
 import main.accessDevice.AccessDevice;
 import main.server.commands.AbstractCommandsFactory;
 import main.server.commands.CommandsFactoryCreator;
-import main.server.commands.ICommand;
-import main.server.commands.adminCommands.AbstractAdminCommand;
-import main.server.commands.adminCommands.AdminCommandsFactory;
 import main.server.managers.AccessDevicesManager;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;

@@ -3,10 +3,10 @@ package main.accessDevice.deviceComponents.buttonsPanel;
 import main.accessDevice.deviceComponents.buttonsPanel.buttons.Button;
 
 public class ButtonsPanel {
-	private IButtonsPanelEventsReceiver buttonsPanelEventsReceiver;
+	private ButtonsPanelEventsReceiver buttonsPanelEventsReceiver;
 	private boolean[] isButtonPressed;
 
-	public ButtonsPanel(IButtonsPanelEventsReceiver buttonsPanelEventsReceiver) {
+	public ButtonsPanel(ButtonsPanelEventsReceiver buttonsPanelEventsReceiver) {
 		this.buttonsPanelEventsReceiver = buttonsPanelEventsReceiver;
 		isButtonPressed = new boolean[Button.values().length];
 	}

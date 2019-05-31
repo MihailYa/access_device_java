@@ -8,9 +8,9 @@ public class AccessCardRecipient {
 
 	private Logger log = Logger.getLogger(AccessCardRecipient.class.getSimpleName());
 	private AccessCard insertedCard;
-	private ICardDataReceiver cardDataReceiver;
+	private CardDataReceiver cardDataReceiver;
 
-	public AccessCardRecipient(ICardDataReceiver cardDataReceiver) {
+	public AccessCardRecipient(CardDataReceiver cardDataReceiver) {
 		this.cardDataReceiver = cardDataReceiver;
 	}
 

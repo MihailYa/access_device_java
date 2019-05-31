@@ -3,9 +3,9 @@ package main.accessDevice;
 import main.accessDevice.data.entities.AccessCard;
 import main.accessDevice.deviceComponents.Memory;
 import main.accessDevice.deviceComponents.accessCardRecipient.AccessCardRecipient;
-import main.accessDevice.deviceComponents.accessCardRecipient.ICardDataReceiver;
+import main.accessDevice.deviceComponents.accessCardRecipient.CardDataReceiver;
 import main.accessDevice.deviceComponents.buttonsPanel.ButtonsPanel;
-import main.accessDevice.deviceComponents.buttonsPanel.IButtonsPanelEventsReceiver;
+import main.accessDevice.deviceComponents.buttonsPanel.ButtonsPanelEventsReceiver;
 import main.accessDevice.deviceComponents.buttonsPanel.buttons.Button;
 import main.accessDevice.deviceStates.AccessDeviceState;
 import main.accessDevice.deviceStates.InitState;
@@ -13,7 +13,7 @@ import main.accessDevice.util.timer.TimeLeftTimer;
 
 import java.util.logging.Logger;
 
-public class AccessDevice implements IButtonsPanelEventsReceiver, ICardDataReceiver {
+public class AccessDevice implements ButtonsPanelEventsReceiver, CardDataReceiver {
 
 	private Logger log = Logger.getLogger(AccessDevice.class.getSimpleName());
 
